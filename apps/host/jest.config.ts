@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'devx-mf',
+  displayName: 'host',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/devx-mf',
+  coverageDirectory: '../../coverage/apps/host',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

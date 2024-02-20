@@ -1,24 +1,27 @@
 {
-  "name": "devx-mf",
+  "name": "host",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "devx-mf",
-  "sourceRoot": "apps/devx-mf/src",
+  "sourceRoot": "apps/host/src",
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/devx-mf",
-        "index": "apps/devx-mf/src/index.html",
-        "main": "apps/devx-mf/src/main.ts",
+        "outputPath": "dist/apps/host",
+        "index": "apps/host/src/index.html",
+        "main": "apps/host/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/devx-mf/tsconfig.app.json",
+        "tsConfig": "apps/host/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/devx-mf/src/favicon.ico", "apps/devx-mf/src/assets"],
-        "styles": ["apps/devx-mf/src/styles.scss"],
-        "scripts": []
+        "assets": ["apps/host/src/favicon.ico", "apps/host/src/assets"],
+        "styles": ["apps/host/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/host/webpack.config.ts"
+        }
       },
       "configurations": {
         "production": {
@@ -34,7 +37,10 @@
               "maximumError": "4kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/host/webpack.prod.config.ts"
+          }
         },
         "development": {
           "buildOptimizer": false,
@@ -48,13 +54,17 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@nx/angular:module-federation-dev-server",
+      "options": {
+        "port": 4200,
+        "publicHost": "http://localhost:4200"
+      },
       "configurations": {
         "production": {
-          "buildTarget": "devx-mf:build:production"
+          "buildTarget": "host:build:production"
         },
         "development": {
-          "buildTarget": "devx-mf:build:development"
+          "buildTarget": "host:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -62,7 +72,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "devx-mf:build"
+        "buildTarget": "host:build"
       }
     }
   }

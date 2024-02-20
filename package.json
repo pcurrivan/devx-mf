@@ -14,6 +14,8 @@
     "@angular/platform-browser-dynamic": "~17.1.0",
     "@angular/router": "~17.1.0",
     "@nx/angular": "18.0.4",
+    "devextreme": "^23.2.4",
+    "devextreme-angular": "^23.2.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
@@ -32,6 +34,8 @@
     "@nx/eslint-plugin": "18.0.4",
     "@nx/jest": "18.0.4",
     "@nx/js": "18.0.4",
+    "@nx/web": "18.0.4",
+    "@nx/webpack": "18.0.4",
     "@nx/workspace": "18.0.4",
     "@schematics/angular": "~17.1.0",
     "@swc-node/register": "~1.8.0",
