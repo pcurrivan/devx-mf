@@ -3,8 +3,8 @@
 Requires Node 18+
 
 Run with:
-- `nx serve host --skipRemotes=remote1`
-- `nx serve remote1`
+- `npx nx serve host --skipRemotes=remote1`
+- `npx nx serve remote1`
 
 The host app will be served from localhost:4200
 
