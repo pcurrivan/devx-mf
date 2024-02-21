@@ -6,18 +6,19 @@ import PivotGridDataSource from 'devextreme/ui/pivot_grid/data_source';
 @Component({
   selector: 'devx-mf-remote1-entry',
   template: `
-    <div style="height: 400px;">
+    <div>
       <dx-data-grid
         [dataSource]="dataSource"
       ></dx-data-grid>
     </div>    
-    <div style="height: 600px;">
+    <div>
       <dx-pivot-grid
         [dataSource]="pivotGridDataSource"
       ></dx-pivot-grid>
     </div>
   `,
 })
+// TODO maybe problem arises when passing inputs from host to remote?
 export class RemoteEntryComponent {
   dataSource = new DataSource({
     store: new ArrayStore({
@@ -31,8 +32,8 @@ export class RemoteEntryComponent {
   pivotGridDataSource = new PivotGridDataSource({
     store: new ArrayStore({
       data: [
-        { foo: 'foo1', bar: 'bar1', val: 1 },
-        { foo: 'foo2', bar: 'bar2', val: 2 },
+        { foo: 'foo1', bar: 'bar1', val: 42 },
+        { foo: 'foo2', bar: 'bar2', val: 77 },
       ]
     }),
     fields: [
@@ -46,7 +47,9 @@ export class RemoteEntryComponent {
       },
       {
         dataField: 'val',
-        area: 'data'
+        area: 'data',
+        dataType: 'number',
+        summaryType: 'sum',
       }
     ]
   })

@@ -1,12 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { appRoutes } from './app.routes';
+
+// comment/uncomment these imports:
+
+// import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
+// import { DxPivotGridModule } from 'devextreme-angular/ui/pivot-grid';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+
+    // comment/uncomment these module imports:
+
+    // DxDataGridModule,
+    // DxPivotGridModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

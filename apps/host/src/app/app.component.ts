@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EnvironmentInjector, Injector, OnInit, ViewChild, ViewContainerRef, createNgModule, runInInjectionContext } from '@angular/core';
+import { loadRemoteModule } from '@nx/angular/mf';
+
+// comment/uncomment these imports:
+
 // import ArrayStore from 'devextreme/data/array_store';
 // import DataSource from 'devextreme/data/data_source';
 // import PivotGridDataSource from 'devextreme/ui/pivot_grid/data_source';
@@ -8,8 +12,17 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'host';
+export class AppComponent implements OnInit {
+
+  @ViewChild('anchor', { read: ViewContainerRef }) anchor: ViewContainerRef | undefined;
+
+  ngOnInit(): void {
+    loadRemoteModule('remote1', './Module').then(x => {
+      this.anchor?.createComponent(x.RemoteEntryModule.getEntryComponent());
+    })
+  }
+  
+  // comment/uncomment this statement:
 
   // dataSource = new DataSource({
   //   store: new ArrayStore({
@@ -19,6 +32,10 @@ export class AppComponent {
   //     ]
   //   })
   // });
+
+
+
+  // comment/uncomment this statement:
 
   // pivotGridDataSource = new PivotGridDataSource({
   //   store: new ArrayStore({
@@ -38,7 +55,9 @@ export class AppComponent {
   //     },
   //     {
   //       dataField: 'val',
-  //       area: 'data'
+  //       area: 'data',
+  //       dataType: 'number',
+  //       summaryType: 'sum',
   //     }
   //   ]
   // })
