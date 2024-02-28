@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 
 // comment/uncomment these imports:
 
-// import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
+import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 // import { DxPivotGridModule } from 'devextreme-angular/ui/pivot-grid';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 
     // comment/uncomment these module imports:
 
-    // DxDataGridModule,
+    DxDataGridModule,
     // DxPivotGridModule
   ],
   providers: [],

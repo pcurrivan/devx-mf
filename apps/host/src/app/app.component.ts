@@ -3,8 +3,8 @@ import { loadRemoteModule } from '@nx/angular/mf';
 
 // comment/uncomment these imports:
 
-// import ArrayStore from 'devextreme/data/array_store';
-// import DataSource from 'devextreme/data/data_source';
+import ArrayStore from 'devextreme/data/array_store';
+import DataSource from 'devextreme/data/data_source';
 // import PivotGridDataSource from 'devextreme/ui/pivot_grid/data_source';
 
 @Component({
@@ -24,14 +24,14 @@ export class AppComponent implements OnInit {
   
   // comment/uncomment this statement:
 
-  // dataSource = new DataSource({
-  //   store: new ArrayStore({
-  //     data: [
-  //       { foo: 'foo1', bar: 'bar1' },
-  //       { foo: 'foo2', bar: 'bar2' },
-  //     ]
-  //   })
-  // });
+  dataSource = new DataSource({
+    store: new ArrayStore({
+      data: [
+        { foo: 'foo1', bar: 'bar1' },
+        { foo: 'foo2', bar: 'bar2' },
+      ]
+    })
+  });
 
 
 
